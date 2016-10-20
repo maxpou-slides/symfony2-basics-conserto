@@ -43,12 +43,12 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
     </section>
   </section>
   <section>
-  	<h2>Goals</h2>
-  	<ul>
-  		<li>PHP OOP (recalls)</li>
-  		<li>Discovering the basics of Symfony2 and his components (Twig, Doctrine, ...)</li>
-  		<li>Realize a web app with Symfony2&amp;MySQL</li>
-  	</ul>
+    <h2>Goals</h2>
+    <ul>
+      <li>PHP OOP (recalls)</li>
+      <li>Discovering the basics of Symfony2 and his components (Twig, Doctrine, ...)</li>
+      <li>Realize a web app with Symfony2&amp;MySQL</li>
+    </ul>
   </section>
   <section>
     <section>
@@ -57,7 +57,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
     <section>
       <h2>POPO: Plain Old PHP Object</h2>
       <div class='span6 fragment'>
-<pre><code data-trim contenteditable>
+<pre><code class="php" data-trim contenteditable>
 class Drink
 {
   protected $id;
@@ -71,7 +71,7 @@ class Drink
 </code></pre>
       </div>
       <div class='span6 fragment'>
-<pre><code data-trim contenteditable>
+<pre><code class="php" data-trim contenteditable>
 class Beer extends Drink
 {
   protected $alcohol;
@@ -91,7 +91,7 @@ class Beer extends Drink
     </section>
     <section>
       <h2>Getter/Setter</h2>
-<pre><code data-trim contenteditable>
+<pre><code class="php" data-trim contenteditable>
 class Beer
 {
   private $color;
@@ -109,7 +109,7 @@ class Beer
     </section>
     <section>
       <h2>Instanciate new class</h2>
-<pre><code data-trim contenteditable>
+<pre><code class="php" data-trim contenteditable>
 class Beer
 {
   //...
@@ -139,7 +139,7 @@ $color = $myBeer->getColor();
     </section>
     <section>
       <h2>Design Anti-Pattern: Singleton</h2>
-<pre><code data-trim contenteditable>
+<pre><code class="php" data-trim contenteditable>
 class MySingleton
 {
     protected static $instance;
@@ -340,7 +340,7 @@ beer_show:
     </section>
     <section>
       <h2>Twig: before/after</h2>
-<pre class="sticky"><code data-trim contenteditable>
+<pre class="sticky"><code class="php" data-trim contenteditable>
 <!-- Before -->
 &lt;ul&gt;
 &lt;?php
@@ -433,7 +433,7 @@ $ php app/console doctrine:schema:update
     </section>
     <section>
       <h2>Doctrine annotations</h2>
-      <pre><code data-trim contenteditable>
+      <pre><code class="php" data-trim contenteditable>
 /**
  * Beer
  *
@@ -462,7 +462,7 @@ class Beer
     </section>
     <section>
       <h2>Doctrine principle</h2>
-      <pre><code data-trim contenteditable>
+      <pre><code class="php" data-trim contenteditable>
 $myBeer = new Beer();
 $myBeer->setName('Kwak');
 $myBeer->setAlcohol(8.4);
@@ -484,7 +484,7 @@ $em->flush();
     </section>
     <section>
       <h2>Doctrine: retrieve object</h2>
-      <pre><code data-trim contenteditable>
+      <pre><code class="php" data-trim contenteditable>
 $em = $this->getDoctrine()->getManager();
 
 $aBeer = $em->getRepository('ConsertoBeerBundle:Beer')->find($id);
@@ -496,7 +496,7 @@ $beers = $em->getRepository('ConsertoBeerBundle:Beer')->findByAlcohol($alcohol);
     </section>
     <section>
       <h2>Doctrine: update/delete</h2>
-      <pre><code data-trim contenteditable>
+      <pre><code class="php" data-trim contenteditable>
 $em = $this->getDoctrine()->getManager();
 //Update
 $aBeer = $em->getRepository('ConsertoBeerBundle:Beer')->find(42);
@@ -511,7 +511,7 @@ $em->flush();
     </section>
     <section>
       <h2>Doctrine: custom request</h2>
-      <pre><code data-trim contenteditable>
+      <pre><code class="php" data-trim contenteditable>
 //src\Conserto\BeerBundle\Repository\BeerRepository.php
 public function findByAbbeyAndAlcohol($abbey, $alcohol)
 {
@@ -623,7 +623,7 @@ services:
       class    : Conserto\HelloBundle\Mailer
       arguments: [sendmail]
           </code></pre>
-          <pre class="sticky"><code data-trim contenteditable>
+          <pre class="sticky"><code class="php" data-trim contenteditable>
 class WhateverController extends Controller
 {
   public function sendEmailAction()
